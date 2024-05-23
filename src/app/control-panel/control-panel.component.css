@@ -1,59 +1,58 @@
-.intersection {
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
+  margin: 0;
+  background: #f9f9f9;
 }
-
-.horizontal-lights {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.vertical-lights {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-.horizontal-lights, .vertical-lights {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 20px;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  gap: 20px;
 }
 .traffic-light {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  border: 2px solid red;
-  margin: 10px;
   padding: 10px;
+  border: 5px solid rgb(222, 187, 33);
+  border-radius: 10px;
+  background: white;
 }
-
+.traffic-light.horizontal {
+  flex-direction: row;
+}
 .light {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid red;
   border-radius: 50%;
-  background-color: grey;
+  margin: 10px;
 }
-
-.red {
-  background-color: red;
+.light.red {
+  background: repeating-linear-gradient(
+      45deg,
+      red,
+      red 10px,
+      white 10px,
+      white 20px
+  );
 }
-
-.yellow {
-  background-color: yellow;
+.light.yellow {
+  background: yellow;
 }
-
-.green {
-  background-color: green;
+.light.green {
+  background: repeating-linear-gradient(
+      45deg,
+      green,
+      green 10px,
+      white 10px,
+      white 20px
+  );
 }
-
-.active {
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+.empty {
+  visibility: hidden;
 }

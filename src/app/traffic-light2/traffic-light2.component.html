@@ -1,0 +1,7 @@
+<div class="traffic-light">
+    <div class="light red" [class.active]="currentColor === TrafficLightColor.Red"></div>
+    <div class="light yellow" [class.active]="currentColor === TrafficLightColor.Yellow"></div>
+    <div class="light green" [class.active]="currentColor === TrafficLightColor.Green"></div>
+  </div>
+  <button [disabled]="buttonDisabled" (click)="onCross()">Пресичане</button>
+  

@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
-
 export enum TrafficLightColor {
   Red = 'red',
   Yellow = 'yellow',
@@ -9,21 +8,21 @@ export enum TrafficLightColor {
 }
 
 @Component({
-  selector: 'app-traffic-light',
-  templateUrl: './traffic-light.component.html',
-  styleUrls: ['./traffic-light.component.css'],
+  selector: 'app-traffic-light-reverse',
+  templateUrl: './traffic-light2.component.html',
+  styleUrls: ['./traffic-light2.component.css'],
   imports: [CommonModule],
   standalone: true
 })
-export class TrafficLightComponent implements OnInit, OnDestroy {
+export class TrafficLightComponent2 implements OnInit, OnDestroy {
   @Input() direction: string = '';
-  currentColor: TrafficLightColor = TrafficLightColor.Red;
+  currentColor: TrafficLightColor = TrafficLightColor.Green;
   buttonDisabled: boolean = true;
   emergencyMode: boolean = false;
 
   public TrafficLightColor = TrafficLightColor;
 
-  private colorCycle: TrafficLightColor[] = [TrafficLightColor.Red,TrafficLightColor.Yellow, TrafficLightColor.Green, TrafficLightColor.Yellow];
+  private colorCycle: TrafficLightColor[] = [TrafficLightColor.Green,TrafficLightColor.Yellow, TrafficLightColor.Red, TrafficLightColor.Yellow];
   
 
   private index = 0;
@@ -90,14 +89,14 @@ export class TrafficLightComponent implements OnInit, OnDestroy {
     this.buttonDisabled = true;
 
     this.emergencyInterval = setInterval(() => {
-      this.currentColor = this.currentColor === TrafficLightColor.Yellow ? TrafficLightColor.Red : TrafficLightColor.Yellow;
+      this.currentColor = this.currentColor === TrafficLightColor.Yellow ? TrafficLightColor.Green : TrafficLightColor.Yellow;
     }, 500);
   }
 
   stopEmergencyMode() {
     this.clearTimers();
     this.emergencyMode = false;
-    this.index = 0; // Reset to start from red again
+    this.index = 0; // Reset to start from green again
     this.startCycle();
   }
 

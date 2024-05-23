@@ -1,15 +1,27 @@
-<div class="intersection">
-  <div class="horizontal-lights">
-    <app-traffic-light direction="north"></app-traffic-light>
-    <app-traffic-light direction="south"></app-traffic-light>
+<div class="grid-container">
+
+  <div class="empty"></div>
+  <div class="traffic-light horizontal">
+    <app-traffic-light></app-traffic-light>
   </div>
-  <div class="vertical-lights">
-    <div class="horizontal-light">
-      <app-traffic-light direction="east"></app-traffic-light>
-    </div>
-    <div class="horizontal-light">
-      <app-traffic-light direction="west"></app-traffic-light>
-    </div>
+
+  <div class="empty"></div>
+  <div class="traffic-light vertical">
+    <app-traffic-light-reverse></app-traffic-light-reverse>
   </div>
+  
+
+  <div class="empty"></div>
+  <div class="traffic-light vertical">
+    <app-traffic-light-reverse></app-traffic-light-reverse>
+  </div>
+
+  <div class="empty"></div>
+  <div class="traffic-light horizontal">
+    <app-traffic-light></app-traffic-light>
+  </div>
+
+  <div class="empty"></div>
 </div>
+ 
 <button (click)="onEmergency()" [disabled]="buttonDisabled">Авария</button>
