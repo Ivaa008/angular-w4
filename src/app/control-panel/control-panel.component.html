@@ -1,5 +1,4 @@
 <div class="grid-container">
-
   <div class="empty"></div>
   <div class="traffic-light horizontal">
     <app-traffic-light></app-traffic-light>
@@ -9,7 +8,6 @@
   <div class="traffic-light vertical">
     <app-traffic-light-reverse></app-traffic-light-reverse>
   </div>
-  
 
   <div class="empty"></div>
   <div class="traffic-light vertical">
@@ -22,6 +20,8 @@
   </div>
 
   <div class="empty"></div>
+
+  <button class="emergency-button" (click)="onEmergency()" [disabled]="buttonDisabled">
+    Авария
+  </button>
 </div>
- 
-<button (click)="onEmergency()" [disabled]="buttonDisabled">Авария</button>

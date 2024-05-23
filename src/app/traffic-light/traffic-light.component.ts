@@ -17,7 +17,7 @@ export enum TrafficLightColor {
 })
 export class TrafficLightComponent implements OnInit, OnDestroy {
   @Input() direction: string = '';
-  currentColor: TrafficLightColor = TrafficLightColor.Red;
+  currentColor: TrafficLightColor | null = TrafficLightColor.Red;
   buttonDisabled: boolean = true;
   emergencyMode: boolean = false;
 
@@ -90,7 +90,7 @@ export class TrafficLightComponent implements OnInit, OnDestroy {
     this.buttonDisabled = true;
 
     this.emergencyInterval = setInterval(() => {
-      this.currentColor = this.currentColor === TrafficLightColor.Yellow ? TrafficLightColor.Red : TrafficLightColor.Yellow;
+      this.currentColor = this.currentColor === TrafficLightColor.Yellow ? null : TrafficLightColor.Yellow;
     }, 500);
   }
 
